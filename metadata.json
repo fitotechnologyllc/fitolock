@@ -1,0 +1,6 @@
+{
+  "name": "FitoLock Browser",
+  "description": "A secure, decentralized application browser simulation with wallet integration, tabbed browsing, and other privacy features.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
