@@ -24,10 +24,4 @@ export enum ModalType {
     Bookmarks,
     History,
     Settings,
-    AiAssistant
-}
-
-export interface ChatMessage {
-    role: 'user' | 'model';
-    text: string;
 }

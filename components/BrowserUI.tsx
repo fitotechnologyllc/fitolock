@@ -8,7 +8,6 @@ import Modal from './Modal';
 import BookmarksManager from './BookmarksManager';
 import HistoryManager from './HistoryManager';
 import Settings from './Settings';
-import AiAssistant from './AiAssistant';
 import { ModalType } from '../types';
 import { LockClosedIcon } from '../constants';
 
@@ -29,8 +28,6 @@ const BrowserUI: React.FC<BrowserUIProps> = ({ browserState }) => {
             return <HistoryManager history={browserState.history} navigate={browserState.navigate} closeModal={() => setModal(ModalType.None)} />;
         case ModalType.Settings:
             return <Settings theme={theme} toggleTheme={toggleTheme} clearHistory={browserState.clearHistory} closeModal={() => setModal(ModalType.None)} />;
-        case ModalType.AiAssistant:
-            return <AiAssistant />;
         default:
             return null;
     }
@@ -73,7 +70,6 @@ const BrowserUI: React.FC<BrowserUIProps> = ({ browserState }) => {
           onShowHistory={() => setModal(ModalType.History)}
           onShowBookmarks={() => setModal(ModalType.Bookmarks)}
           onShowSettings={() => setModal(ModalType.Settings)}
-          onShowAiAssistant={() => setModal(ModalType.AiAssistant)}
           vpnProps={{ isActive: browserState.isVpnActive, onToggle: browserState.toggleVpn }}
           onGoBack={browserState.goBack}
           onGoForward={browserState.goForward}
@@ -96,8 +92,6 @@ const BrowserUI: React.FC<BrowserUIProps> = ({ browserState }) => {
           <Modal 
             title={modal.toString()} 
             onClose={() => setModal(ModalType.None)}
-            hideHeader={modal === ModalType.AiAssistant}
-            noPadding={modal === ModalType.AiAssistant}
           >
               {renderModalContent()}
           </Modal>
